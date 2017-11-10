@@ -60,6 +60,10 @@ jobs:
       - run:
           name: Build and push Docker image
           command: |
+            mkdir /tmp/build/
+            cd /tmp/build-test
+            tar czf /tmp/build/arr.tar.gz /tmp/docker/
+            ls /tmp/build/
             TAG="0.1.${CIRCLE_BUILD_NUM}"
             docker build -t blnsk/cci-demo-docker:$TAG -t blnsk/cci-demo-docker:latest .
             docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
