@@ -22,9 +22,8 @@ jobs:
       - run:
           name: Build and push Docker image
           command: |
-            mkdir /tmp/build/
-            tar czf /tmp/build/arr.tar.gz /tmp/docker/
-            ls /tmp/build/
+            tar czf arr.tar.gz /tmp/docker/
+            ls -l
             TAG="0.1.${CIRCLE_BUILD_NUM}"
             docker build -f ./.docker/Dockerfile -t blnsk/circle:$TAG -t blnsk/circle:latest .
             docker login -u $DOCKER_LOGIN -p $DOCKER_PASSWORD
