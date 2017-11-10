@@ -22,7 +22,7 @@ jobs:
       - run:
           name: Build and push Docker image
           command: |
-            tar czf arr.tar.gz /tmp/docker/
+            tar czf arr.tar.gz .
             ls -l
             TAG="0.1.${CIRCLE_BUILD_NUM}"
             docker build -f ./.docker/Dockerfile -t blnsk/circle:$TAG -t blnsk/circle:latest .
